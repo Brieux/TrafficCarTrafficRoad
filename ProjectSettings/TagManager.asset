@@ -7,6 +7,7 @@ TagManager:
   - Cars
   - Death
   - Checkpoints
+  - End
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
 {
     public Animator Animation;
     public float speed;
+    public float ratio;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,22 +20,22 @@ public class Move : MonoBehaviour
         {
             if (speed < 0.4)
             {
-                speed += 0.001f; 
+                speed += 0.001f * ratio; 
             }
             else
             {
-                speed = 0.4f;
+                speed = 0.4f * ratio;
             }
         }
         if (!Input.GetMouseButton(0))
         {
             if (speed > 0)
             {
-                speed -= 0.005f;
+                speed -= 0.005f * ratio;
             }
             else
             {
-                speed = 0;
+                speed = 0 * ratio;
             }
         }
         Animation.SetFloat("Multiplier", speed);
@@ -45,6 +46,12 @@ public class Move : MonoBehaviour
         if (collision.gameObject.tag == "Cars")
         {
             Debug.Log("GameOver");
+        }
+
+        if (collision.gameObject.tag == "End")
+        {
+            Debug.Log("End");
+            collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
         }
     }
 }
