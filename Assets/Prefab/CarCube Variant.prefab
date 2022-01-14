@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 970925111037655048, guid: d1bd574e9b8bebf4cab14339b991c802, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1deb2214ee788244fb1e608831743fff, type: 2}
     - target: {fileID: 2541989383586380062, guid: d1bd574e9b8bebf4cab14339b991c802, type: 3}
       propertyPath: m_Name
       value: CarCube Variant
