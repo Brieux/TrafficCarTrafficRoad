@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31515,6 +31515,8 @@ MonoBehaviour:
   Animation: {fileID: 614911549}
   speed: 0
   ratio: 1.3
+  InitPos: {x: 0, y: 0, z: 0}
+  InitRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &614911551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31526,7 +31528,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.33, y: 2.47, z: 4.21}
+  m_Size: {x: 3.19, y: 3.4, z: 4.21}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &614911552
 MonoBehaviour:
@@ -31604,6 +31606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 133357628}
   MenuEnd: {fileID: 1843952080}
+  state: 0
+  player: {fileID: 614911547}
 --- !u!4 &616188509
 Transform:
   m_ObjectHideFlags: 0
@@ -31879,7 +31883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.45999146, y: -0.16000366}
+  m_AnchoredPosition: {x: -0.45996094, y: -0.16000366}
   m_SizeDelta: {x: 0.480011, y: 83.86}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &642337509
@@ -46660,7 +46664,7 @@ GameObject:
   - component: {fileID: 1596764114}
   - component: {fileID: 1596764116}
   - component: {fileID: 1596764115}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Crash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46701,7 +46705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -58405,7 +58409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: REPLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 652c963f33d7564478730a7802bff703, type: 2}
   m_sharedMaterial: {fileID: -4510010999286307670, guid: 652c963f33d7564478730a7802bff703, type: 2}
@@ -59120,7 +59124,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.53515625, y: 1}
+    m_SensorSize: {x: 0.5626204, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

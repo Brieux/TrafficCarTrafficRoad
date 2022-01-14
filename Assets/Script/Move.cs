@@ -7,16 +7,19 @@ public class Move : MonoBehaviour
     public Animator Animation;
     public float speed;
     public float ratio;
+    public Vector3 InitPos;
+    public Quaternion InitRot;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitPos = transform.localPosition;
+        InitRot = transform.localRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && GameManager.Instance.state == 0)
         {
             if (speed < 0.4)
             {
@@ -54,5 +57,12 @@ public class Move : MonoBehaviour
             Debug.Log("End");
             collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
         }
+    }
+
+    public void playerReset()
+    {
+        transform.localPosition = InitPos;
+        transform.localRotation = InitRot;
+        Animation.Play("MoveCar", -1, 0);
     }
 }

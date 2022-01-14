@@ -19,7 +19,11 @@ public class Score : MonoBehaviour
     {
         
     }
-
+    public void resetScore()
+    {
+        score = 0;
+        UIScore.GetComponent<TextMeshProUGUI>().SetText("Score : " + score);
+    }
     public void Marquer()
     {
         score += 1;
