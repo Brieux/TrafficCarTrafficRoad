@@ -46,6 +46,7 @@ public class Move : MonoBehaviour
         if (collision.gameObject.tag == "Cars")
         {
             Debug.Log("GameOver");
+            GameManager.Instance.End();
         }
 
         if (collision.gameObject.tag == "End")
