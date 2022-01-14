@@ -24,5 +24,9 @@ public class Score : MonoBehaviour
     {
         score += 1;
         UIScore.GetComponent<TextMeshProUGUI>().SetText("Score : " + score);
+        if (score == 5)
+        {
+            //GameManager.Instance.NextLevel();
+        }
     }
 }
