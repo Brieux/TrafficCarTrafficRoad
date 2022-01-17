@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Image MenuEnd;
     public int state;
     public GameObject player;
+    public List<GameObject> allCars;
 
     public static GameManager Instance;
     // Start is called before the first frame update
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
     public void Replay()
     {
         MenuEnd.gameObject.SetActive(false);
+        foreach(GameObject car in allCars)
+        {
+            Destroy(car);
+        }
+        allCars.Clear();
         player.GetComponent<Score>().resetScore();
         player.GetComponent<Move>().playerReset();
         state = 0;

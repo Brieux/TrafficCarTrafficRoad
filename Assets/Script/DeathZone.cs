@@ -20,6 +20,7 @@ public class DeathZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Cars")
         {
+            GameManager.Instance.allCars.Remove(collision.gameObject);
             Destroy(collision.gameObject);
         }
     }
