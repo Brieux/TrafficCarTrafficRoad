@@ -34,6 +34,13 @@ public class MarquerUnPoint : MonoBehaviour
                 case 1:
                     other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim1");
                     break;
+
+                case 2:
+                    other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim2");
+                    break;
+                case 3:
+                    other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim3");
+                    break;
                 default:
                     other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim1");
                     break;
