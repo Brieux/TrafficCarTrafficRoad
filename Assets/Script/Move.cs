@@ -9,6 +9,7 @@ public class Move : MonoBehaviour
     public float ratio;
     public Vector3 InitPos;
     public Quaternion InitRot;
+    public bool once = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,11 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && GameManager.Instance.state == 0)
         {
+            if (once)
+            {
+                Animation.SetTrigger("OpenCar");
+                once = false;
+            }
             if (speed < 0.4)
             {
                 speed += 0.001f * ratio; 
@@ -32,6 +38,11 @@ public class Move : MonoBehaviour
         }
         if (!Input.GetMouseButton(0))
         {
+            if (!once)
+            {
+                Animation.SetTrigger("CloseCar");
+                once = true;
+            }
             if (speed > 0)
             {
                 speed -= 0.005f * ratio;
