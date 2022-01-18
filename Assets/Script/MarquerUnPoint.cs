@@ -20,6 +20,10 @@ public class MarquerUnPoint : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (gameObject.tag == "End")
+        {
+            GameManager.Instance.newLevel(1);
+        }
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Salut");
