@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int state;
     public GameObject player;
     public List<GameObject> allCars;
+    public int levelNum;
 
     public static GameManager Instance;
     // Start is called before the first frame update
@@ -30,6 +31,16 @@ public class GameManager : MonoBehaviour
     {
         img.gameObject.SetActive(false);
         state = 0;
+        switch (levelNum)
+        {
+            case 1:
+                player.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                break;
+            default:
+                player.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                break;
+
+        }
     }
 
     public void Replay()

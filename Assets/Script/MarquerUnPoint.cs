@@ -5,6 +5,7 @@ using UnityEngine;
 public class MarquerUnPoint : MonoBehaviour
 {
     public ParticleSystem NS;
+    public int NumAnimToPlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,16 @@ public class MarquerUnPoint : MonoBehaviour
             Debug.Log("Salut");
             other.gameObject.GetComponent<Score>().Marquer();
             NS.Play();
+            switch (NumAnimToPlay)
+            {
+                case 1:
+                    other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                    break;
+                default:
+                    other.gameObject.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                    break;
+
+            }
         }
     }
 }
