@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public List<GameObject> allCars;
     public int levelNum;
+    public GameObject spawneer;
 
     public static GameManager Instance;
     // Start is called before the first frame update
@@ -66,5 +67,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void newLevel(int numLevel)
+    {
+        Debug.Log("Le level est chargé" + numLevel);
+        player.transform.localPosition = spawneer.transform.position;
     }
 }

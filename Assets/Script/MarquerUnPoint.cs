@@ -20,12 +20,12 @@ public class MarquerUnPoint : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (gameObject.tag == "End")
-        {
-            GameManager.Instance.newLevel(1);
-        }
         if (other.gameObject.tag == "Player")
         {
+            if (gameObject.tag == "End")
+            {
+                GameManager.Instance.newLevel(1);
+            }
             Debug.Log("Salut");
             other.gameObject.GetComponent<Score>().Marquer();
             NS.Play();
