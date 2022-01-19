@@ -91,5 +91,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Le level est chargé" + numLevel);
         player.transform.localPosition = spawneer.transform.position;
+
+        if (numLevel == 1)
+        {
+            player.GetComponent<Animator>().SetTrigger("PlayAnim2");
+            player.GetComponent<Move>().ratio *= 3;
+        }
     }
 }
