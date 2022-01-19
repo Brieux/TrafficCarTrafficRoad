@@ -64,7 +64,17 @@ public class GameManager : MonoBehaviour
         MenuEnd.GetComponent<Animator>().SetTrigger("end");
     }
 
-    private void Awake()
+
+    public IEnumerator EndCoroutine()
+    {
+        Debug.Log("gameover");
+        yield return new WaitForSeconds(3);
+        state = 1;
+        MenuEnd.gameObject.SetActive(true);
+        MenuEnd.GetComponent<Animator>().SetTrigger("end");
+    }
+
+        private void Awake()
     {
         Instance = this;
     }
