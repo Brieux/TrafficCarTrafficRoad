@@ -19,7 +19,7 @@ public class Generator : MonoBehaviour
         if (randomTime <= 0){
             GameObject oneCar =Instantiate(Car[Random.Range(0, 2)],this.transform) ;
             GameManager.Instance.allCars.Add(oneCar);
-            randomTime = Random.Range(1.5f, 4);
+            randomTime = Random.Range(3f, 5f);
         }
     }
 }

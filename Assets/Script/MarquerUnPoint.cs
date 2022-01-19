@@ -7,6 +7,7 @@ public class MarquerUnPoint : MonoBehaviour
     public ParticleSystem NS;
     public int NumAnimToPlay;
     public bool activated = false;
+    public bool fin = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +29,9 @@ public class MarquerUnPoint : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                if (gameObject.tag == "End")
+                if (fin)
                 {
+                    Debug.Log("efdf");
                     GameManager.Instance.newLevel(1);
                 }
                 Debug.Log("Salut");

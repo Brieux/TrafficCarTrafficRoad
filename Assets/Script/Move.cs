@@ -29,11 +29,11 @@ public class Move : MonoBehaviour
             }
             if (speed < 0.4)
             {
-                speed += 0.001f * ratio; 
+                speed += 0.001f * ratio * Time.deltaTime; 
             }
             else
             {
-                speed = 0.4f * ratio;
+                speed = 0.4f * ratio * Time.deltaTime;
             }
         }
         if (!Input.GetMouseButton(0))
@@ -45,11 +45,11 @@ public class Move : MonoBehaviour
             }
             if (speed > 0)
             {
-                speed -= 0.005f * ratio;
+                speed -= 0.005f * ratio * Time.deltaTime;
             }
             else
             {
-                speed = 0 * ratio;
+                speed = 0 * ratio * Time.deltaTime;
             }
         }
         Animation.SetFloat("Multiplier", speed);
@@ -69,6 +69,7 @@ public class Move : MonoBehaviour
         {
             Debug.Log("End");
             collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            GameManager.Instance.newLevel(1);
         }
     }
 
