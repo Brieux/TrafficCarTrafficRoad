@@ -44,6 +44,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Quitter()
+    {
+        Application.Quit();
+    }
+
+    public void CrediterLeJeu()
+    {
+
+    }
     public void Replay()
     {
         MenuEnd.gameObject.SetActive(false);
