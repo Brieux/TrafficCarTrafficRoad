@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Move : MonoBehaviour
 {
@@ -10,11 +11,18 @@ public class Move : MonoBehaviour
     public Vector3 InitPos;
     public Quaternion InitRot;
     public bool once = true;
+
+    public float rapidity;
     // Start is called before the first frame update
     void Start()
     {
         InitPos = transform.localPosition;
         InitRot = transform.localRotation;
+        rapidity = GetComponent<NavMeshAgent>().speed;
+        
+        GetComponent<NavMeshAgent>().destination = GameManager.Instance.maintarget.transform.position;
+        GetComponent<NavMeshAgent>().speed = 0;
+
     }
 
     // Update is called once per frame
@@ -22,6 +30,8 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && GameManager.Instance.state == 0)
         {
+
+            /*
             if (once)
             {
                 Animation.SetTrigger("OpenCar");
@@ -35,9 +45,16 @@ public class Move : MonoBehaviour
             {
                 speed = 0.4f * ratio * Time.deltaTime;
             }
+            */
+
+            GetComponent<NavMeshAgent>().speed = rapidity;
         }
         if (!Input.GetMouseButton(0))
         {
+
+            GetComponent<NavMeshAgent>().speed = 0;
+
+            /*
             if (!once)
             {
                 Animation.SetTrigger("CloseCar");
@@ -51,8 +68,9 @@ public class Move : MonoBehaviour
             {
                 speed = 0 * ratio * Time.deltaTime;
             }
+            */
         }
-        Animation.SetFloat("Multiplier", speed);
+        // Animation.SetFloat("Multiplier", speed);
     }
 
     private void OnCollisionEnter(Collision collision)

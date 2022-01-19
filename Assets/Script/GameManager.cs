@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
     public GameObject spawneer;
     public GameObject player2;
     public GameObject target;
+    public GameObject target0;
+    public GameObject maintarget;
 
     public static GameManager Instance;
     // Start is called before the first frame update
     void Start()
     {
         state = 1;
-        player2.GetComponent<NavMeshAgent>().destination = target.transform.position;
     }
 
     // Update is called once per frame
@@ -39,10 +40,12 @@ public class GameManager : MonoBehaviour
         switch (levelNum)
         {
             case 1:
-                player.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                maintarget = target;
+                //player.GetComponent<Animator>().SetTrigger("PlayAnim1");
                 break;
             default:
-                player.GetComponent<Animator>().SetTrigger("PlayAnim1");
+                maintarget = target0;
+                //player.GetComponent<Animator>().SetTrigger("PlayAnim1");
                 break;
 
         }
