@@ -57,8 +57,10 @@ public class Move : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Cars")
+        if (collision.gameObject.tag == "Cars" && GameManager.Instance.state != 1)
         {
+            GetComponent<Animator>().SetTrigger("impact");
+            GameManager.Instance.state = 1;
             Debug.Log("GameOver");
             StartCoroutine(GameManager.Instance.EndCoroutine());
         }

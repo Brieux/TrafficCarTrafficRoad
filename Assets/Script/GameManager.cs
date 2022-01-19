@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator EndCoroutine()
     {
         Debug.Log("gameover");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.1f);
         state = 1;
         MenuEnd.gameObject.SetActive(true);
         MenuEnd.GetComponent<Animator>().SetTrigger("end");
