@@ -8,11 +8,12 @@ TagManager:
   - Death
   - Checkpoints
   - End
+  - test
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - test
   - Water
   - UI
   - 

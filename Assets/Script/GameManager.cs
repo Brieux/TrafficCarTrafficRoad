@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,12 +15,15 @@ public class GameManager : MonoBehaviour
     public List<GameObject> allCars;
     public int levelNum;
     public GameObject spawneer;
+    public GameObject player2;
+    public GameObject target;
 
     public static GameManager Instance;
     // Start is called before the first frame update
     void Start()
     {
         state = 1;
+        player2.GetComponent<NavMeshAgent>().destination = target.transform.position;
     }
 
     // Update is called once per frame
