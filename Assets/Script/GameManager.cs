@@ -69,6 +69,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    public IEnumerator EndCoroutine()
+    {
+        Debug.Log("gameover");
+        yield return new WaitForSeconds(3);
+        state = 1;
+        MenuEnd.gameObject.SetActive(true);
+        MenuEnd.GetComponent<Animator>().SetTrigger("end");
+    }
+
     public void newLevel(int numLevel)
     {
         Debug.Log("Le level est chargé" + numLevel);
