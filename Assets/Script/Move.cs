@@ -12,19 +12,22 @@ public class Move : MonoBehaviour
     public Quaternion InitRot;
     public bool once = true;
 
-    public float rapidity;
+    public float rapidity = 40;
     // Start is called before the first frame update
     void Start()
     {
-        InitPos = transform.localPosition;
-        InitRot = transform.localRotation;
-        rapidity = GetComponent<NavMeshAgent>().speed;
         
-        GetComponent<NavMeshAgent>().destination = GameManager.Instance.maintarget.transform.position;
-        GetComponent<NavMeshAgent>().speed = 0;
 
     }
 
+    public void demarrer()
+    {
+        InitPos = transform.localPosition;
+        InitRot = transform.localRotation;
+
+        GetComponent<NavMeshAgent>().destination = GameManager.Instance.maintarget.transform.position;
+        GetComponent<NavMeshAgent>().speed = 0;
+    }
     // Update is called once per frame
     void Update()
     {

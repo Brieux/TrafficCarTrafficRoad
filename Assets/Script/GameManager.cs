@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
+        player.GetComponent<Move>().demarrer();
     }
 
     public void Quitter()
@@ -97,12 +98,13 @@ public class GameManager : MonoBehaviour
     public void newLevel(int numLevel)
     {
         Debug.Log("Le level est chargé" + numLevel);
+        player.GetComponent<NavMeshAgent>().enabled = false;
         player.transform.localPosition = spawneer.transform.position;
-
-        if (numLevel == 1)
-        {
-            player.GetComponent<Animator>().SetTrigger("PlayAnim2");
-            player.GetComponent<Move>().ratio *= 3;
-        }
+        player.GetComponent<NavMeshAgent>().enabled = true;
+        player.GetComponent<Move>().demarrer();
+        player.transform.localScale *= 2;
+        player.GetComponent<Move>().rapidity *= 2;
+        player.GetComponent<NavMeshAgent>().acceleration = 150;
+        player.GetComponent<NavMeshAgent>().destination = target.transform.position;
     }
 }

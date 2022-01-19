@@ -6,11 +6,19 @@ public class Speed : MonoBehaviour
 {
     public GameObject Conv;
     private bool boolSign;
+    public bool sens;
     // Start is called before the first frame update
     void Start()
     {
         Conv.SetActive(false);
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 15f);  
+        if (sens)
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 15f);
+        }
+        else
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -15f);
+        }
         if (Random.Range(0,3) == 1)
         {
             boolSign = true;
