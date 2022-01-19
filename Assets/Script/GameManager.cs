@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject menuplay2;
     public GameObject menuplay3;
     public GameObject menuCredit;
+    public GameObject menuendgame;
 
     public static GameManager Instance;
     // Start is called before the first frame update
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Score>().resetScore();
         player.GetComponent<Move>().playerReset();
         state = 0;
+
     }
 
     public void End()
@@ -111,9 +113,14 @@ public class GameManager : MonoBehaviour
         player.transform.localPosition = spawneer.transform.position;
         player.GetComponent<NavMeshAgent>().enabled = true;
         player.GetComponent<Move>().demarrer();
-        player.transform.localScale *= 1.5f;
-        player.GetComponent<Move>().rapidity *= 2;
+        player.transform.localScale *= 1f;
+        player.GetComponent<Move>().rapidity *= 1.2f;
         player.GetComponent<NavMeshAgent>().acceleration = 150;
         player.GetComponent<NavMeshAgent>().destination = target.transform.position;
+    }
+
+    public void restartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

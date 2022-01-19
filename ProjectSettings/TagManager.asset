@@ -9,6 +9,7 @@ TagManager:
   - Checkpoints
   - End
   - test
+  - endgame
   layers:
   - Default
   - TransparentFX

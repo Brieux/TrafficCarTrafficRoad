@@ -94,6 +94,11 @@ public class Move : MonoBehaviour
             collision.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             GameManager.Instance.newLevel(1);
         }
+
+        if (collision.gameObject.tag == "endgame")
+        {
+            GameManager.Instance.menuendgame.SetActive(true);
+        }
     }
 
     public void playerReset()
@@ -101,5 +106,8 @@ public class Move : MonoBehaviour
         transform.localPosition = InitPos;
         transform.localRotation = InitRot;
         //Animation.Play("MoveCar", -1, 0);
+        GetComponent<Animator>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = true;
+        GetComponent<NavMeshAgent>().destination = GameManager.Instance.maintarget.transform.position;
     }
 }
