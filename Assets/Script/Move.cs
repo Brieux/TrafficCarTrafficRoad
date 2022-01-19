@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Animator>().enabled = false;
 
     }
 
@@ -80,6 +80,8 @@ public class Move : MonoBehaviour
     {
         if (collision.gameObject.tag == "Cars" && GameManager.Instance.state != 1)
         {
+            GetComponent<Animator>().enabled = true;
+            GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<Animator>().SetTrigger("impact");
             GameManager.Instance.state = 1;
             Debug.Log("GameOver");
@@ -98,6 +100,6 @@ public class Move : MonoBehaviour
     {
         transform.localPosition = InitPos;
         transform.localRotation = InitRot;
-        Animation.Play("MoveCar", -1, 0);
+        //Animation.Play("MoveCar", -1, 0);
     }
 }
